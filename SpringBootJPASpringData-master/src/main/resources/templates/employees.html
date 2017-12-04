@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+ 
+
+</head>
+<body>
+
+
+
+ <div class="col-md-4">
+  <h1>Students</h1>
+ </div>
+ 
+ 
+    
+    <div style="padding:0 20px">
+    <table class="table table-striped" border="1">
+  <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Phone</th>
+      <th>Experience</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Pincode</th>
+      <th>Technology</th>
+      <th>Actions</th>
+  </tr>  
+     <tr th:each = "student : ${studentslist}">
+      <td  class="tdName" th:text="${employee.name}"></td>
+      <td class="tdEmailId" th:text="${employee.emailId}"></td>
+       <td class="tdPassword" th:text="${employee.password}"></td>
+      <td class="tdPhone" th:text="${employee.phone}"></td>
+      <td class="tdDob" th:text="${employee.experiencd}"></td>
+      <td class="tdDoorNo" th:text="${employee.address.street}"></td>
+      <td class="tdArea" th:text="${employee.address.city}"></td>
+      <td class="tdCity" th:text="${employee.address.state}"></td>
+      <td class="tdPincode" th:text="${employee.address.zipcode}"></td>
+      <td>
+    <span th:each="technology,iterStat : ${employee.requirement}">
+     <span th:text="${requirement.technology}"/><th:block th:if="${!iterStat.last}">,</th:block>
+    </span>      
+      </td>
+      <td><a th:href="@{/edit/{employeeId}(employeeId=${employee.employeeId})}">Edit</a>
+      <a th:href="@{/delete/{employeeId}(employeeId=${employee.employeeId})}">Delete</a></td>
+      
+      <td><a th:href="@{/addEmployeeRequirement/{employeeId}(employeeId=${employee.employeeId})}"
+       class="btn btn-success btn-xs">Add Course</a></td>    
+      </tr>
+       </table>
+       <a href="/addEmployee" class="btn btn-success">Apply</a>
+    </div>
+   </body>
+   </html>

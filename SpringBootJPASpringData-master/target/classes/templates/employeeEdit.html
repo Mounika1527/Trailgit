@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Edit Record</h1>
+	<div class="col-md-4">
+		<form th:object="${employee}" th:action="@{/update}" method="post">
+		
+		<input type="hidden" name="employeeId" class="form-control"
+				 th:value="${employee.employeeId}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+		
+			<input type="text" name="name" class="form-control"
+				 th:value="${employee.name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<input type="text" name="emailId" class="form-control"
+				th:value="${employee.emailId}" th:readonly="readonly"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<input type="text" name="password" class="form-control"
+				th:value="${employee.password}" th:readonly="readonly"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<input type="text" name="phone" class="form-control"
+				th:value="${employee.phone}"/>
+			<div style="clear: both; display: block; height: 10px;"></div>	
+			<input type="text" name="experience" class="form-control"
+				th:value="${employee.experience}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" name="address.street" class="form-control"
+				th:value="${employee.address.street}"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" name="address.area" class="form-control"
+				th:value="${employee.address.city}"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" name="address.state" class="form-control"
+				th:value="${employee.address.state}"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" name="address.zipcode" class="form-control"
+				th:value="${employee.address.zipcode}"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			
+			
+			<input type="submit" class="btn btn-success" value="Update"></input>
+			
+
+		
+			
+		</form>
+	</div>
+</body>
+</html>
